@@ -31,13 +31,13 @@ export default function PortfolioView({ portfolioItems, selectedItem, setSelecte
         className="pt-16 flex flex-col space-y-4 max-w-3xl"
       >
         <span className="font-mono text-xs text-studio-accent uppercase tracking-[0.2em] font-medium">
-          03 // WEBSITE CONCEPTS
+          03 // DESIGN EXPLORATIONS
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-studio-dark leading-tight">
-          Website Concepts
+          Website Concepts & Demos
         </h1>
         <p className="font-sans text-base md:text-lg text-studio-clay font-light leading-relaxed max-w-2xl">
-          Premium website experiences created to demonstrate what's possible for local businesses. Never fake client work. Each concept represents a custom brand language, optimized typography, and modern high-performance design layout.
+          These are concept websites created to showcase what's possible for local businesses like cafés, salons, gyms, and boutiques. Each layout highlights a custom brand language, optimized layouts, and direct customer-attracting features.
         </p>
       </motion.section>
 

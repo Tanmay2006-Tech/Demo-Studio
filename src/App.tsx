@@ -122,7 +122,7 @@ export default function App() {
     email: '',
     businessName: '',
     description: '',
-    budget: '₹5,000 - ₹15,000',
+    budget: 'Free Concept Demo',
   });
   const [modalSubmitting, setModalSubmitting] = useState(false);
   const [modalSuccess, setModalSuccess] = useState(false);
@@ -174,23 +174,19 @@ export default function App() {
       email: '',
       businessName: '',
       description: `We seek a website concept inspired by the visual language of the "${projectName}" case study.`,
-      budget: '₹15,000 - ₹35,000',
+      budget: 'Free Concept Demo',
     });
     setIsInquiryModalOpen(true);
   };
 
   // Inquire from Pricing selection
-  const handleInquireFromPricing = (packageName: string, estimatedPrice: number) => {
+  const handleInquireFromPricing = (packageName: string) => {
     setModalFormData({
       name: '',
       email: '',
       businessName: '',
-      description: `Inquiry regarding the "${packageName}" configuration. Sizing estimate: ₹${estimatedPrice.toLocaleString('en-IN')}.`,
-      budget: estimatedPrice < 20000 
-        ? '₹5,000 - ₹15,000' 
-        : estimatedPrice < 40000 
-          ? '₹15,000 - ₹35,000' 
-          : '₹35,000 - ₹50,000+',
+      description: `Inquiry regarding the "${packageName}" custom service blueprint.`,
+      budget: 'Free Concept Demo',
     });
     setIsInquiryModalOpen(true);
   };
@@ -221,7 +217,7 @@ export default function App() {
           email: '',
           businessName: '',
           description: '',
-          budget: '₹5,000 - ₹15,000',
+          budget: 'Free Concept Demo',
         });
       }, 3500);
     }, 1200);
@@ -256,7 +252,7 @@ export default function App() {
             email: '',
             businessName: '',
             description: '',
-            budget: '₹5,000 - ₹15,000',
+            budget: 'Free Concept Demo',
           });
           setIsInquiryModalOpen(true);
         }}
@@ -423,20 +419,7 @@ export default function App() {
                     />
                   </div>
 
-                  {/* Pricing Category */}
-                  <div className="flex flex-col space-y-1">
-                    <label htmlFor="modal-budget" className="font-mono text-[9px] uppercase tracking-wider text-studio-clay">Budget Target Sizing</label>
-                    <select
-                      id="modal-budget"
-                      value={modalFormData.budget}
-                      onChange={(e) => setModalFormData(p => ({ ...p, budget: e.target.value }))}
-                      className="bg-stone-50 border border-studio-border rounded-lg px-3.5 py-2.5 font-sans text-xs focus:outline-none focus:border-studio-gold cursor-pointer"
-                    >
-                      <option value="₹5,000 - ₹15,000">₹5,000 — ₹15,000 (The Showcase Studio Website)</option>
-                      <option value="₹15,000 - ₹35,000">₹15,000 — ₹35,000 (The Editorial Brand Experience)</option>
-                      <option value="₹35,000 - ₹50,000+">₹35,000 — ₹50,000+ (Custom Commission / E-Commerce)</option>
-                    </select>
-                  </div>
+                  {/* Budget Category Hidden/Hardcoded */}
 
                   {/* Description input */}
                   <div className="flex flex-col space-y-1">
@@ -612,7 +595,7 @@ export default function App() {
             email: '',
             businessName: '',
             description: '',
-            budget: '₹5,000 - ₹15,000',
+            budget: 'Free Concept Demo',
           });
           setIsInquiryModalOpen(true);
         }}

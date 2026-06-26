@@ -33,8 +33,8 @@ export default function Header({ activeView, setActiveView, openInquiryForm }: H
 
   const navItems = [
     { id: 'home' as ActiveView, label: 'The Studio', index: '01' },
-    { id: 'services' as ActiveView, label: 'Services & Pricing', index: '02' },
-    { id: 'portfolio' as ActiveView, label: 'The Archive', index: '03' },
+    { id: 'services' as ActiveView, label: 'Services', index: '02' },
+    { id: 'portfolio' as ActiveView, label: 'Website Concepts', index: '03' },
   ];
 
   return (

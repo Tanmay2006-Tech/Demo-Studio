@@ -17,7 +17,7 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
     email: '',
     businessName: '',
     description: '',
-    budget: '₹5,000 - ₹15,000',
+    budget: 'Free Concept Demo',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -33,7 +33,7 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
 
     setIsSubmitting(true);
     setTimeout(() => {
-      onInquirySubmit(formData);
+      onInquirySubmit({ ...formData, budget: 'Free Concept Demo' });
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({
@@ -41,7 +41,7 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
         email: '',
         businessName: '',
         description: '',
-        budget: '₹5,000 - ₹15,000',
+        budget: 'Free Concept Demo',
       });
       // reset success state after 5 seconds
       setTimeout(() => setSubmitted(false), 8000);
@@ -336,13 +336,13 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
             className="flex flex-col space-y-4 max-w-xl"
           >
             <span className="font-mono text-xs text-studio-accent uppercase tracking-[0.2em] font-medium">
-              03 // WEBSITE CONCEPTS
+              03 // DESIGN EXPLORATIONS
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-studio-dark">
-              Website Concepts
+              Website Concepts & Demos
             </h2>
             <p className="font-sans text-sm text-studio-clay font-light leading-relaxed">
-              Premium website experiences created to demonstrate what's possible for local businesses. Never fake client work.
+              These are concept websites created to showcase what's possible for local businesses like cafés, salons, boutiques, and gyms.
             </p>
           </motion.div>
           
@@ -423,8 +423,12 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
               <p className="font-sans text-sm text-studio-cream/85 leading-relaxed font-light">
                 Whether you run a café, bakery, salon, restaurant, gym, boutique, or any local business, I'd love to create a unique digital experience for your brand.
               </p>
+
+              <p className="font-sans text-sm text-studio-gold font-medium leading-relaxed bg-studio-gold/10 border-l-2 border-studio-gold p-3 rounded-r-lg">
+                ✨ Interested in seeing how your business could look online? I can create a free concept demo for your brand with no obligation.
+              </p>
               
-              <p className="font-sans text-xs text-studio-cream/60 leading-relaxed font-light border-l-2 border-studio-gold/50 pl-3">
+              <p className="font-sans text-xs text-studio-cream/65 leading-relaxed font-light pl-1">
                 Every website is custom-designed to match your business and attract more customers.
               </p>
               
@@ -570,24 +574,6 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
                       placeholder="e.g., L'Etoile Boulangerie, Gandhi Nagar, Jammu"
                       className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 font-sans text-sm text-studio-cream placeholder:text-stone-600 focus:outline-none focus:border-studio-gold transition-colors focus:ring-1 focus:ring-studio-gold"
                     />
-                  </div>
-
-                  {/* Budget Estimate */}
-                  <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="budget" className="font-mono text-[10px] uppercase tracking-wider text-studio-cream/60">
-                      Project Budget Estimate
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="bg-[#2B2521] border border-white/10 rounded-lg px-4 py-3 font-sans text-sm text-studio-cream focus:outline-none focus:border-studio-gold transition-colors cursor-pointer"
-                    >
-                      <option value="₹4,999 - ₹9,999">₹4,999 — ₹9,999 (Starter Website Concept)</option>
-                      <option value="₹9,999 - ₹19,999">₹9,999 — ₹19,999 (Business Web Accelerator)</option>
-                      <option value="₹19,999+">₹19,999+ (Premium E-Commerce / Custom Portal)</option>
-                    </select>
                   </div>
 
                   {/* Tell me about your business */}

@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { PricingPackage, CustomQuoteOptions } from '../types';
-import { Check, ArrowRight, Sparkles, HelpCircle, Info } from 'lucide-react';
+import { Check, ArrowRight, Sparkles, Info } from 'lucide-react';
 
 interface ServicesViewProps {
   packages: PricingPackage[];
-  onSelectPackage: (packageName: string, estimatedPrice: number) => void;
+  onSelectPackage: (packageName: string) => void;
 }
 
 export default function ServicesView({ packages, onSelectPackage }: ServicesViewProps) {
-  // Quote Planner States
+  // Scope Planner States
   const [pages, setPages] = useState(5);
   const [options, setOptions] = useState<CustomQuoteOptions>({
+    pages: 5,
     customCopy: true,
     seoSetup: false,
     prioritySupport: true,
@@ -19,42 +20,22 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
   });
   const [ecommerce, setEcommerce] = useState(false);
 
-  // Surcharges / Prices in INR (₹)
-  const BASE_PRICE = 4999; // base price for a 1-page site: ₹4,999
-  const PRICE_PER_PAGE = 1000; // ₹1,000
-  const PRICE_COPY = 1500; // ₹1,500
-  const PRICE_SEO = 1000; // ₹1,000
-  const PRICE_SUPPORT = 1000; // ₹1,000
-  const PRICE_DOMAIN = 500; // ₹500
-  const PRICE_ECOMMERCE = 5000; // ₹5,000
-
-  // Calculate live total
-  const calculateTotal = () => {
-    let total = BASE_PRICE;
-    
-    // add pages (page 1 is free as part of base)
-    if (pages > 1) {
-      total += (pages - 1) * PRICE_PER_PAGE;
-    }
-    
-    if (options.customCopy) total += PRICE_COPY;
-    if (options.seoSetup) total += PRICE_SEO;
-    if (options.prioritySupport) total += PRICE_SUPPORT;
-    if (options.domainConfig) total += PRICE_DOMAIN;
-    if (ecommerce) total += PRICE_ECOMMERCE;
-    
-    return total;
-  };
-
   const handleOptionToggle = (key: keyof CustomQuoteOptions) => {
+    if (key === 'pages') return;
     setOptions((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const currentTotal = calculateTotal();
-
   const handleInquireCustom = () => {
-    const configDescription = `Custom Site Config: ${pages} pages, ${options.customCopy ? 'With Copywriting, ' : ''}${options.seoSetup ? 'With SEO, ' : ''}${options.prioritySupport ? 'With Priority Support, ' : ''}${options.domainConfig ? 'With Domain Config, ' : ''}${ecommerce ? 'With E-Commerce' : ''}`;
-    onSelectPackage(configDescription, currentTotal);
+    const blueprintName = ecommerce 
+      ? "Elite E-Commerce System" 
+      : pages <= 3 
+        ? "Starter Brand Blueprint" 
+        : pages <= 8 
+          ? "Business Growth Portal" 
+          : "Comprehensive Enterprise System";
+
+    const configDescription = `${blueprintName} Scope: ${pages} pages, ${options.customCopy ? 'With Copywriting, ' : ''}${options.seoSetup ? 'With Advanced SEO, ' : ''}${options.prioritySupport ? 'With Launch Care, ' : ''}${options.domainConfig ? 'With Custom Domain setup' : ''}${ecommerce ? ' & E-Commerce catalog' : ''}`;
+    onSelectPackage(configDescription);
   };
 
   return (
@@ -65,10 +46,10 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
           02 // SERVICE DIRECTORY
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-studio-dark leading-tight">
-          Transparent offerings. Uncompromising quality.
+          Bespoke digital services. Tailored to your business.
         </h1>
         <p className="font-sans text-base md:text-lg text-studio-clay font-light leading-relaxed max-w-2xl">
-          We maintain absolute transparency with our pricing. Each configuration is carefully outlined to let you make informed decisions for your business. No secret surcharges, no subscription locks.
+          I design and build premium custom websites for cafés, salons, boutiques, restaurants, and local businesses in Jammu. Each project is tailored specifically to attract customers, build brand authority, and boost trust.
         </p>
       </section>
 
@@ -87,7 +68,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
         animate="show"
         className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"
       >
-        {packages.map((pkg, index) => (
+        {packages.map((pkg) => (
           <motion.div 
             key={pkg.id}
             variants={{
@@ -105,16 +86,16 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
             
             <div className="flex flex-col space-y-2">
               <span className="font-mono text-[10px] tracking-widest text-studio-clay uppercase font-semibold">
-                PACKAGE // {pkg.id.toUpperCase()}
+                SERVICE BLUEPRINT // {pkg.id.toUpperCase()}
               </span>
               <h3 className="font-serif text-2xl font-bold text-studio-dark">{pkg.name}</h3>
               <p className="font-sans text-xs text-studio-clay font-light">{pkg.subtitle}</p>
             </div>
 
             <div className="flex items-baseline space-x-2 border-y border-studio-border py-4">
-              <span className="font-sans text-xs font-mono text-studio-clay">FLAT FEE /</span>
-              <span className="font-serif text-3xl font-extrabold text-studio-dark">
-                {pkg.price === 450000 ? 'From ₹4,50,000' : `₹${pkg.price.toLocaleString('en-IN')}`}
+              <span className="font-sans text-xs font-mono text-studio-clay">PROJECT MODEL /</span>
+              <span className="font-serif text-lg font-bold text-studio-accent uppercase tracking-wide">
+                Free Concept Included
               </span>
             </div>
 
@@ -141,10 +122,10 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
               </div>
               
               <button
-                onClick={() => onSelectPackage(pkg.name, pkg.price)}
+                onClick={() => onSelectPackage(pkg.name)}
                 className="bg-studio-dark hover:bg-studio-accent text-studio-cream font-sans text-[10px] font-bold uppercase tracking-wider px-5 py-2.5 rounded-full flex items-center space-x-1 cursor-pointer transition-colors"
               >
-                <span>Select Package</span>
+                <span>Request Details</span>
                 <ArrowRight size={12} />
               </button>
             </div>
@@ -160,13 +141,13 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
             <div className="flex flex-col space-y-2">
               <span className="font-mono text-[10px] tracking-[0.25em] text-studio-gold uppercase font-bold flex items-center space-x-1.5">
                 <Sparkles size={12} />
-                <span>INTERACTIVE LABS</span>
+                <span>INTERACTIVE SCOPE BLUEPRINT LABS</span>
               </span>
               <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-studio-cream">
-                Assemble a Bespoke Sizing Quote
+                Assemble a Custom Digital Blueprint
               </h2>
               <p className="font-sans text-sm text-studio-cream/60 leading-relaxed font-light max-w-xl">
-                Use our live calculator to specify exactly what your business requires. Adjust page counts, copywriting scope, and advanced features to see a real-time, transparent fee estimation.
+                Use our dynamic scope planner to specify exactly what your business requires. Adjust page counts, copywriting needs, and advanced features to see a real-time, custom-recommended setup.
               </p>
             </div>
 
@@ -187,8 +168,8 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-studio-gold focus:outline-none"
               />
               <div className="flex justify-between font-mono text-[9px] text-studio-cream/40">
-                <span>1 PAGE (STUDIO PAGE)</span>
-                <span>15 PAGES (COMPREHENSIVE DIRECTORY)</span>
+                <span>1 PAGE (STUDIO LANDING PAGE)</span>
+                <span>15 PAGES (COMPREHENSIVE MULTI-PAGE DIRECTORY)</span>
               </div>
             </div>
 
@@ -204,7 +185,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Brand Copywriting</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹1,500 // Full visual tone & copy</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">// Tailored brand voice & copy creation</span>
                 </div>
               </button>
 
@@ -218,7 +199,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Advanced SEO Setup</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹1,000 // Keyword indexation & maps</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">// Local SEO, maps indexation, and tags</span>
                 </div>
               </button>
 
@@ -233,7 +214,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Priority 30-Day Launch Care</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹1,000 // Express support & edits</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">// Express post-launch maintenance & updates</span>
                 </div>
               </button>
 
@@ -247,7 +228,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Custom DNS & Domain Setup</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹500 // Mapping & email routing</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">// Direct mapping, SSL, and routing config</span>
                 </div>
               </button>
 
@@ -261,10 +242,10 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold flex items-center space-x-1.5">
-                    <span>E-Commerce Curation & Setup</span>
-                    <span className="font-mono text-[8px] bg-studio-gold/20 text-studio-gold uppercase px-1.5 py-0.5 rounded tracking-wide">HIGH COMMISSION</span>
+                    <span>E-Commerce Checkout & Catalog</span>
+                    <span className="font-mono text-[8px] bg-studio-gold/20 text-studio-gold uppercase px-1.5 py-0.5 rounded tracking-wide">Premium Catalog</span>
                   </span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹5,000 // Digital checkout, secure payments, inventory system, and product catalog</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">// Online product catalog, shopping cart, UPI/payments, and inventory dashboard</span>
                 </div>
               </button>
             </div>
@@ -273,83 +254,81 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
           {/* Sizing Quote Totalizer Card */}
           <div className="lg:col-span-5 bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col space-y-6">
             <span className="font-mono text-[10px] tracking-wider text-studio-gold uppercase font-bold text-center border-b border-white/5 pb-4">
-              SURCHARGE & TIMELINE RECEIPT
+              BLUEPRINT DESIGN SCOPE SUMMARY
             </span>
 
             <div className="flex flex-col space-y-3 font-mono text-[11px] text-studio-cream/60">
               <div className="flex justify-between">
                 <span>STUDIO BASE LAYOUT:</span>
-                <span className="text-studio-cream font-medium">₹{BASE_PRICE.toLocaleString('en-IN')}</span>
+                <span className="text-studio-cream font-medium">Included (1 Page)</span>
               </div>
               
               {pages > 1 && (
                 <div className="flex justify-between">
-                  <span>PAGES SURCHARGE ({pages - 1} extra):</span>
-                  <span className="text-studio-cream font-medium">+₹{((pages - 1) * PRICE_PER_PAGE).toLocaleString('en-IN')}</span>
+                  <span>ADDITIONAL LAYOUTS:</span>
+                  <span className="text-studio-cream font-medium">+{pages - 1} extra pages</span>
                 </div>
               )}
               
-              {options.customCopy && (
-                <div className="flex justify-between">
-                  <span>BRAND VOICE COPYWRITING:</span>
-                  <span className="text-studio-cream font-medium">+₹{PRICE_COPY.toLocaleString('en-IN')}</span>
-                </div>
-              )}
+              <div className="flex justify-between">
+                <span>BRAND VOICE COPYWRITING:</span>
+                <span className="text-studio-cream font-medium">{options.customCopy ? 'Custom copy' : 'Supplied copy'}</span>
+              </div>
               
-              {options.seoSetup && (
-                <div className="flex justify-between">
-                  <span>ADVANCED SEO AUDIT:</span>
-                  <span className="text-studio-cream font-medium">+₹{PRICE_SEO.toLocaleString('en-IN')}</span>
-                </div>
-              )}
+              <div className="flex justify-between">
+                <span>ADVANCED SEO AUDIT:</span>
+                <span className="text-studio-cream font-medium">{options.seoSetup ? 'Local ranking ready' : 'Standard tag index'}</span>
+              </div>
               
-              {options.prioritySupport && (
-                <div className="flex justify-between">
-                  <span>PRIORITY 30-DAY CARE:</span>
-                  <span className="text-studio-cream font-medium">+₹{PRICE_SUPPORT.toLocaleString('en-IN')}</span>
-                </div>
-              )}
+              <div className="flex justify-between">
+                <span>LAUNCH CARE PLAN:</span>
+                <span className="text-studio-cream font-medium">{options.prioritySupport ? '30 Days Included' : 'Standard launch handoff'}</span>
+              </div>
               
-              {options.domainConfig && (
-                <div className="flex justify-between">
-                  <span>DNS & CUSTOM DOMAIN MAP:</span>
-                  <span className="text-studio-cream font-medium">+₹{PRICE_DOMAIN.toLocaleString('en-IN')}</span>
-                </div>
-              )}
+              <div className="flex justify-between">
+                <span>DNS & DOMAIN MAP SETUP:</span>
+                <span className="text-studio-cream font-medium">{options.domainConfig ? 'Active Configured' : 'Self-guided'}</span>
+              </div>
 
               {ecommerce && (
                 <div className="flex justify-between">
-                  <span>E-COMMERCE CHECKOUT BUILD:</span>
-                  <span className="text-studio-cream font-medium">+₹{PRICE_ECOMMERCE.toLocaleString('en-IN')}</span>
+                  <span>ONLINE E-COMMERCE CART:</span>
+                  <span className="text-studio-cream font-medium">Checkout System Active</span>
                 </div>
               )}
             </div>
 
-            <div className="border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <span className="font-serif text-base text-studio-cream font-bold">Estimated Quote:</span>
+            <div className="border-t border-white/10 pt-4 flex flex-col space-y-1">
+              <span className="font-mono text-[9px] uppercase tracking-wider text-studio-cream/40">RECOMMENDED BLUEPRINT</span>
               <div className="overflow-hidden">
                 <motion.span
-                  key={currentTotal}
+                  key={pages + (ecommerce ? 100 : 0)}
                   initial={{ opacity: 0.7, scale: 0.9, y: 5 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ type: "spring", stiffness: 350, damping: 14 }}
-                  className="font-serif text-3xl font-black text-studio-gold block"
+                  className="font-serif text-2xl font-bold text-studio-gold block"
                 >
-                  ₹{currentTotal.toLocaleString('en-IN')}
+                  {ecommerce 
+                    ? "Elite E-Commerce System" 
+                    : pages <= 3 
+                      ? "Starter Brand Blueprint" 
+                      : pages <= 8 
+                        ? "Business Growth Portal" 
+                        : "Comprehensive Enterprise System"}
                 </motion.span>
               </div>
             </div>
 
             <div className="flex items-start space-x-2 bg-studio-gold/10 text-studio-gold p-3 rounded-lg text-xs font-light">
               <Info size={14} className="shrink-0 mt-0.5" />
-              <span>Includes complete responsive visual audits and domain hosting direction.</span>
+              <span>Free custom demo concept available. I can sketch out what your business looks like before you decide.</span>
             </div>
 
             <button
               onClick={handleInquireCustom}
               className="w-full bg-studio-gold text-studio-dark hover:bg-studio-cream hover:text-studio-dark font-sans text-xs font-bold uppercase tracking-wider py-4 rounded-lg cursor-pointer transition-colors text-center flex items-center justify-center space-x-2"
             >
-              <span>Submit Custom Dossier Sizing</span>
+              <span>Request Free Custom Concept</span>
               <ArrowRight size={14} />
             </button>
           </div>

@@ -19,10 +19,10 @@ export default function Footer({ setActiveView, openInquiryForm }: FooterProps) 
           <div className="md:col-span-2 flex flex-col space-y-6">
             <h3 className="font-serif text-2xl font-bold tracking-tight">TANMAY STUDIO</h3>
             <p className="font-sans text-sm text-studio-cream/70 leading-relaxed max-w-md">
-              We design and engineer bespoke web experiences for local landmarks, upscale boutiques, and independent creators. Our websites marry classical editorial layouts with high-performance engineering.
+              We design and engineer premium web experiences for cafés, salons, restaurants, gyms, and local boutiques. Our websites are built specifically to attract customers and increase brand trust.
             </p>
             <div className="flex items-center space-x-6 text-studio-cream/50 pt-2">
-              <a href="mailto:hello@tanmaystudio.in" className="hover:text-studio-gold transition-colors" title="Email us">
+              <a href="mailto:tanmaytripathi7525@gmail.com" className="hover:text-studio-gold transition-colors" title="Email us">
                 <Mail size={18} />
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-studio-gold transition-colors" title="Instagram">
@@ -55,7 +55,7 @@ export default function Footer({ setActiveView, openInquiryForm }: FooterProps) 
                 01. The Studio
               </button>
               <button onClick={() => { setActiveView('services'); scrollToTop(); }} className="text-left hover:text-studio-cream transition-colors cursor-pointer">
-                02. Services & Pricing
+                02. Services
               </button>
               <button onClick={() => { setActiveView('portfolio'); scrollToTop(); }} className="text-left hover:text-studio-cream transition-colors cursor-pointer">
                 03. Website Concepts
