@@ -6,61 +6,48 @@ import HomeView from './components/HomeView';
 import ServicesView from './components/ServicesView';
 import PortfolioView from './components/PortfolioView';
 import { ActiveView, PortfolioItem, PricingPackage, Inquiry } from './types';
-import { Check, X, FileText, Send, Calendar, Clock, Inbox, Sparkles } from 'lucide-react';
+import { Check, X, FileText, Send, Calendar, Clock, Inbox, Sparkles, MessageCircle } from 'lucide-react';
 
 // Static Portfolio Data
 const portfolioData: PortfolioItem[] = [
   {
     id: '01',
-    title: 'The Hearth',
-    client: 'The Hearth Boulangerie',
+    title: 'Artisan Café',
+    client: 'Concept Website Blueprint',
     category: 'Culinary',
-    year: '2026',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80',
-    description: 'A warm, tactile, type-focused digital brochure for an artisanal heritage bakery.',
-    brandStory: 'The Hearth has baked wood-fired heritage loaves in Gandhi Nagar, Jammu since 1994. To translate their highly tactile physical atmosphere (burlap bags of flour, rising sourdough, warm brass lighting) into web space, we structured an asymmetrical layout centering large serif typography and detailed food macro-photography. The site features a live baking schedule and custom flour sourcing logs.',
+    year: 'Demo Concept',
+    image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
+    description: 'A warm, tactile, type-focused digital brochure for local cafés & bakeries.',
+    brandStory: 'This concept website mimics the warm physical atmosphere of an artisanal café—complete with rising dough macro-photography, a dynamic daily baking schedule, and an integrated, frictionless table reservation engine. Perfect for bringing Gandhi Nagar or Channi Himmat cafés online to drive foot traffic.',
     colorPalette: ['#F7F3EE', '#4E3C30', '#B58A63', '#2C2723'],
-    features: ['Live heritage grain sourcing log', 'Dynamic daily sourdough baking schedule', 'Bespoke wholesale inquiry module', 'Optimized localized SEO architecture'],
+    features: ['Live daily baking countdown schedule', 'Tactile interactive specialty menu', 'Direct WhatsApp online ordering module', 'Google Maps localized local SEO mapping'],
     typography: 'Playfair Display + Inter'
   },
   {
     id: '02',
-    title: 'Atelier Noir',
-    client: 'Atelier Noir Architects',
-    category: 'Architectural',
-    year: '2026',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
-    description: 'A dark, high-contrast structural portfolio showcasing upscale residential landmarks.',
-    brandStory: 'Atelier Noir is a prestigious architectural studio designing bespoke Brutalist-inspired luxury residences. Their website mimics structural honesty: strict wireframe borders, an ultra-minimal charcoal color field, and an asymmetrical layout that allows their high-contrast, black-and-white architectural photography to stand out. It includes structured visual blueprints and spatial layout diagrams.',
-    colorPalette: ['#111111', '#FFFFFF', '#8C8C8C', '#2A2A2A'],
-    features: ['Fullscreen staggered blueprint browser', 'High-fidelity project category mapping', 'Detailed structural metrics specs sheet', 'Dynamic team profile slideshow'],
-    typography: 'Outfit + Space Grotesk'
-  },
-  {
-    id: '03',
-    title: 'L\'Aura',
-    client: 'L\'Aura Skin Atelier',
+    title: 'Luxe Salon',
+    client: 'Concept Website Blueprint',
     category: 'Boutique',
-    year: '2025',
-    image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=1000&q=80',
-    description: 'An airy, delicate, editorial retail concept for botanical skincare treatments.',
-    brandStory: 'L\'Aura offers custom, botanical skincare formulations and luxury facial therapy in a calming, off-white oasis. We designed a web experience that feels like a breath of fresh air: generous line heights, slow fade-in interactions, and soft macro shots of botany and textured clays. The site integrates a curated product catalog and a reservation desk for local treatments.',
+    year: 'Demo Concept',
+    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80',
+    description: 'An elegant, luxury-focused portfolio layout designed for premium salons & spas.',
+    brandStory: 'Designed for high-end styling salons, spas, and personal wellness clinics. This layout focuses on high-fidelity visual catalogs of styling works, clean pricing lists with smooth tab structures, and a direct digital booking desk that eliminates booking friction and increases trust.',
     colorPalette: ['#FAF8F5', '#8C9A86', '#D1C2B4', '#3E3C3A'],
-    features: ['Tactile treatment reservation engine', 'Curated botanical ingredients encyclopedia', 'Interactive skin evaluation questionnaire', 'E-commerce layout with Stripe checkout'],
+    features: ['Service price breakdown interactive lists', 'Stylist specialty grids & bio slots', 'Calming beauty treatment consultation form', '100% mobile-optimized booking journey'],
     typography: 'Cormorant Garamond + Inter'
   },
   {
-    id: '04',
-    title: 'Scribe & Co',
-    client: 'Scribe Independent Literary Agency',
-    category: 'Corporate',
-    year: '2025',
-    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1000&q=80',
-    description: 'A text-heavy, high-contrast, classical layout representing literary archives.',
-    brandStory: 'Scribe & Co represents visionary novelists and historians. Their digital landmark is built as a celebration of the written word. It utilizes high-contrast newspaper typography pairings, physical book jacket frames, and detailed author catalogs. The interface reads like a luxurious publication, emphasizing deep reading margins, tactile letter spacings, and editorial journal entries.',
-    colorPalette: ['#FCFAF7', '#1A1917', '#EAE3DA', '#5A544C'],
-    features: ['Author biography & manuscript portfolio', 'Classical styled literary review journal', 'Bespoke manuscript submission module', 'Dynamic agent roster directories'],
-    typography: 'Lora + Fira Code'
+    id: '03',
+    title: 'Elite Fitness Studio',
+    client: 'Concept Website Blueprint',
+    category: 'Fitness',
+    year: 'Demo Concept',
+    image: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1200&q=80',
+    description: 'A dark, energetic, high-contrast portal designed for modern gyms & fitness centers.',
+    brandStory: 'A bold, high-contrast, technical grid built to elevate gym brands and yoga/fitness studios. Includes structured pricing tables, interactive membership package customizers, weekly live timetables, and direct contact CTAs.',
+    colorPalette: ['#111111', '#FFFFFF', '#8C8C8C', '#2A2A2A'],
+    features: ['Interactive membership plan matrices', 'Weekly class schedule timetable layout', 'Client transformations testimonial slider', 'Calorie & training goal target estimators'],
+    typography: 'JetBrains Mono + Space Grotesk'
   }
 ];
 
@@ -68,53 +55,53 @@ const portfolioData: PortfolioItem[] = [
 const pricingPackages: PricingPackage[] = [
   {
     id: 'showcase',
-    name: 'The Showcase',
-    price: 15000,
-    subtitle: 'IDEAL FOR BOUTIQUES, CAFES, & CREATIVE STUDIOS',
-    description: 'A meticulous, visual-first presentation of your local business, brand narrative, and service list designed to anchor your physical presence on the digital map.',
+    name: 'Starter',
+    price: 4999,
+    subtitle: 'IDEAL FOR CAFES, SALONS, & LOCAL BRANDS',
+    description: 'A pristine, premium single-page or 3-page website layout designed to showcase your core services and establish digital authority in Jammu.',
     deliverables: [
-      'Bespoke Single-Page or 3-Page layout',
-      'Original editorial copywriting and visual tone',
-      '100% mobile-optimized responsive design',
-      'Google Maps & basic localized SEO setup',
-      'Tactile inquiry/contact form with registry log',
-      'Custom DNS and domain configuration guide'
+      'Stunning 1 to 3 Page bespoke design',
+      'Original copywriting and visual theme direction',
+      'Fully responsive mobile-first architecture',
+      'Google Maps & Google Business listing setup',
+      'Frictionless contact/inquiry form with local logging',
+      'Free high-contrast domain configuration guide'
     ],
-    timeline: '3 - 4 WEEKS'
+    timeline: '3 - 7 DAYS'
   },
   {
     id: 'editorial',
-    name: 'The Editorial',
-    price: 30000,
-    subtitle: 'FOR Upscale ARCHITECTS, PRACTICES, & FIRMS',
-    description: 'A full-scale digital archive showcasing rich project histories, author bios, or treatment plans, backed by customizable grids, brand narratives, and CMS journals.',
+    name: 'Business',
+    price: 9999,
+    subtitle: 'THE ULTIMATE LOCAL BRAND ACCELERATOR',
+    description: 'A full-scale, multi-page brand experience showcasing rich services, reviews, and interactive consultation tools to double your client inquiries.',
     deliverables: [
       'Comprehensive Multi-Page architecture (up to 8 pages)',
-      'Asymmetrical grid portfolios & category filters',
-      'Brand-voice visual copywriting and content direction',
-      'Advanced localized SEO & speed index audit',
-      'Interactive service calculator or reservation desk',
-      'CMS setup for digital journals or project archives',
-      '30 days of direct post-launch support & updates'
+      'Beautiful portfolio grids & category filters',
+      'Full brand voice visual copywriting direction',
+      'Advanced Jammu SEO & local map ranking setup',
+      'Interactive appointment reservation form',
+      'Direct WhatsApp chat integration',
+      '30 days of free direct post-launch support & updates'
     ],
-    timeline: '5 - 6 WEEKS',
-    badge: 'MOST POPULAR'
+    timeline: '1 WEEK',
+    badge: 'MOST POPULAR ⭐'
   },
   {
     id: 'bespoke',
-    name: 'Custom Commission',
-    price: 50000,
-    subtitle: 'FOR DYNAMIC E-COMMERCE & RESERVATIONS',
-    description: 'A bespoke commission creating fully dynamic stores, custom reservation pipelines, or highly personalized interactive estimators matching complex workflows.',
+    name: 'Premium',
+    price: 19999,
+    subtitle: 'FOR DYNAMIC E-COMMERCE & CLIENT PORTALS',
+    description: 'A robust, custom-engineered platform supporting secure e-commerce checkout, catalogs, or custom reservation pipelines for advanced businesses.',
     deliverables: [
       'Bespoke high-fidelity digital application layout',
-      'Advanced checkout integrations (Stripe, Shopify headless)',
-      'Highly interactive product search & material swatches',
-      'Dynamic inventory sync & client portal structures',
-      'Unlimited pages and complete creative control',
-      '60 days of direct premium post-launch maintenance'
+      'Secure e-commerce digital catalog and cart setup',
+      'Integrated payment gateways (Stripe, UPI, or Razorpay)',
+      'Dynamic inventory or custom booking slots',
+      'Unlimited sub-pages and full creative control',
+      '60 days of premium direct technical maintenance'
     ],
-    timeline: '8+ WEEKS'
+    timeline: '1 - 2 WEEKS'
   }
 ];
 
@@ -464,6 +451,12 @@ export default function App() {
                     />
                   </div>
 
+                  <div className="text-center pt-1">
+                    <span className="font-sans text-[10px] text-studio-accent font-medium leading-normal block">
+                      🎁 Free demo website available before purchase. No obligation.
+                    </span>
+                  </div>
+
                   <button
                     type="submit"
                     disabled={modalSubmitting}
@@ -592,6 +585,23 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Floating WhatsApp CTA */}
+      <motion.a
+        href="https://wa.me/917006107969"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white hover:bg-[#20ba56] px-5 py-3.5 rounded-full flex items-center space-x-2.5 shadow-xl border border-white/20 transition-all font-sans text-xs font-bold tracking-wider uppercase cursor-pointer"
+        id="floating-whatsapp-btn"
+      >
+        <MessageCircle size={16} className="fill-current" />
+        <span>Chat on WhatsApp</span>
+      </motion.a>
 
       {/* Editorial Navigation Footer */}
       <Footer 

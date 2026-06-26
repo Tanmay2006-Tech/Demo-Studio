@@ -11,10 +11,10 @@ interface PortfolioViewProps {
 }
 
 export default function PortfolioView({ portfolioItems, selectedItem, setSelectedItem, openInquiryFormWithContext }: PortfolioViewProps) {
-  const [activeFilter, setActiveFilter] = useState<'All' | 'Boutique' | 'Corporate' | 'Culinary' | 'Architectural'>('All');
+  const [activeFilter, setActiveFilter] = useState<'All' | 'Boutique' | 'Culinary' | 'Fitness'>('All');
 
-  const filters: Array<'All' | 'Boutique' | 'Corporate' | 'Culinary' | 'Architectural'> = [
-    'All', 'Boutique', 'Corporate', 'Culinary', 'Architectural'
+  const filters: Array<'All' | 'Boutique' | 'Culinary' | 'Fitness'> = [
+    'All', 'Boutique', 'Culinary', 'Fitness'
   ];
 
   const filteredItems = activeFilter === 'All' 
@@ -31,13 +31,13 @@ export default function PortfolioView({ portfolioItems, selectedItem, setSelecte
         className="pt-16 flex flex-col space-y-4 max-w-3xl"
       >
         <span className="font-mono text-xs text-studio-accent uppercase tracking-[0.2em] font-medium">
-          03 // SELECTED ARCHIVE
+          03 // WEBSITE CONCEPTS
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-studio-dark leading-tight">
-          Websites designed to stand the test of time.
+          Website Concepts
         </h1>
         <p className="font-sans text-base md:text-lg text-studio-clay font-light leading-relaxed max-w-2xl">
-          An curated directory of recent digital structures. Each record represents a custom brand language, optimized typography sheets, and search-indexed performance, designed for local legends.
+          Premium website experiences created to demonstrate what's possible for local businesses. Never fake client work. Each concept represents a custom brand language, optimized typography, and modern high-performance design layout.
         </p>
       </motion.section>
 

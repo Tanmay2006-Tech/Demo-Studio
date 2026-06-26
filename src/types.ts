@@ -13,7 +13,7 @@ export interface PortfolioItem {
   id: string;
   title: string;
   client: string;
-  category: 'Boutique' | 'Corporate' | 'Culinary' | 'Architectural';
+  category: 'Boutique' | 'Culinary' | 'Fitness';
   year: string;
   image: string;
   description: string;

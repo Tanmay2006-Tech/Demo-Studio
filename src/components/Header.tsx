@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { ActiveView } from '../types';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowRight, Menu, X, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
   activeView: ActiveView;
@@ -85,6 +85,18 @@ export default function Header({ activeView, setActiveView, openInquiryForm }: H
             <span className="text-studio-dark font-medium">{localTime} IST</span>
           </div>
           
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            href="https://wa.me/917006107969"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 border border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 px-5 py-2.5 rounded-full font-sans text-xs font-semibold tracking-wide uppercase transition-all cursor-pointer"
+          >
+            <MessageCircle size={14} className="fill-current" />
+            <span>Chat on WhatsApp</span>
+          </motion.a>
+
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -139,6 +151,17 @@ export default function Header({ activeView, setActiveView, openInquiryForm }: H
                 <span>{item.label}</span>
               </button>
             ))}
+
+            {/* Mobile WhatsApp Button */}
+            <a
+              href="https://wa.me/917006107969"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 bg-[#25D366] text-white py-3.5 rounded-lg font-sans text-xs font-bold uppercase tracking-wider shadow-sm transition-colors mt-2"
+            >
+              <MessageCircle size={14} className="fill-current" />
+              <span>Chat on WhatsApp</span>
+            </a>
           </div>
           
           <div className="flex items-center justify-between pt-4 font-mono text-[10px] text-studio-clay">

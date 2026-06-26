@@ -1,5 +1,5 @@
 import { ActiveView } from '../types';
-import { ArrowUp, Instagram, Mail, MapPin, Globe } from 'lucide-react';
+import { ArrowUp, Instagram, Mail, MapPin, Globe, MessageCircle } from 'lucide-react';
 
 interface FooterProps {
   setActiveView: (view: ActiveView) => void;
@@ -33,6 +33,18 @@ export default function Footer({ setActiveView, openInquiryForm }: FooterProps) 
                 <span>JAMMU, IN // 32.73° N, 74.86° E</span>
               </span>
             </div>
+            
+            <div className="pt-2">
+              <a 
+                href="https://wa.me/917006107969" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center space-x-2 bg-[#25D366] hover:bg-[#20ba56] text-white px-5 py-2.5 rounded-full font-sans text-xs font-bold uppercase tracking-wider transition-colors shadow-md"
+              >
+                <MessageCircle size={14} className="fill-current" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
           </div>
 
           {/* Navigation Links Column */}
@@ -46,11 +58,14 @@ export default function Footer({ setActiveView, openInquiryForm }: FooterProps) 
                 02. Services & Pricing
               </button>
               <button onClick={() => { setActiveView('portfolio'); scrollToTop(); }} className="text-left hover:text-studio-cream transition-colors cursor-pointer">
-                03. Selected Archive
+                03. Website Concepts
               </button>
               <button onClick={openInquiryForm} className="text-left hover:text-studio-gold text-studio-gold transition-colors cursor-pointer">
                 04. Start Inquiry
               </button>
+              <a href="https://wa.me/917006107969" target="_blank" rel="noopener noreferrer" className="text-left text-[#25D366] hover:underline transition-colors flex items-center space-x-1.5 cursor-pointer">
+                <span>05. Chat on WhatsApp</span>
+              </a>
             </nav>
           </div>
 

@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'motion/react';
 import { ActiveView, PortfolioItem } from '../types';
-import { ArrowUpRight, ArrowRight, BookOpen, Star, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, BookOpen, Star, Sparkles, CheckCircle2, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
 
 interface HomeViewProps {
   setActiveView: (view: ActiveView) => void;
@@ -109,19 +109,19 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
               variants={heroItemVariants}
               className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-studio-dark leading-[1.1] max-w-2xl"
             >
-              We craft digital spaces for local landmarks & modern artisans.
+              Your Business Deserves More Than Just an Instagram Page.
             </motion.h1>
             
             <motion.p 
               variants={heroItemVariants}
               className="font-sans text-base md:text-lg text-studio-clay font-light leading-relaxed max-w-xl"
             >
-              Premium, tailor-made web design for independent boutiques, culinary venues, architectural practices, and design agencies. We make websites that mirror the tangible qualities of your real-world presence.
+              I build premium websites for cafés, salons, restaurants, gyms, and local brands that attract customers and increase trust.
             </motion.p>
             
             <motion.div 
               variants={heroItemVariants}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4"
             >
               <button
                 onClick={() => {
@@ -133,12 +133,22 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
                 <span>Initiate Briefing</span>
                 <ArrowRight size={16} />
               </button>
+
+              <a
+                href="https://wa.me/917006107969"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25D366] text-white hover:bg-[#20ba56] font-sans text-sm font-semibold tracking-wide uppercase px-8 py-4 rounded-full flex items-center justify-center space-x-2 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 duration-300 cursor-pointer"
+              >
+                <MessageCircle size={16} className="fill-current" />
+                <span>Chat on WhatsApp</span>
+              </a>
               
               <button
                 onClick={() => setActiveView('portfolio')}
-                className="font-sans text-sm font-semibold tracking-wide text-studio-dark hover:text-studio-accent uppercase inline-flex items-center justify-center space-x-1 border-b border-studio-dark hover:border-studio-accent pb-1 transition-all cursor-pointer"
+                className="font-sans text-sm font-semibold tracking-wide text-studio-dark hover:text-studio-accent uppercase inline-flex items-center justify-center space-x-1 border-b border-studio-dark hover:border-studio-accent pb-1 transition-all cursor-pointer sm:ml-2"
               >
-                <span>View Selected Works</span>
+                <span>Website Concepts</span>
                 <ArrowUpRight size={16} />
               </button>
             </motion.div>
@@ -263,6 +273,59 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
         </div>
       </section>
 
+      {/* 2.5 Trust Section - Why Local Businesses Choose Tanmay */}
+      <section className="px-6 md:px-12 max-w-7xl mx-auto w-full py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-studio-dark text-studio-cream rounded-3xl p-8 md:p-16 border border-studio-accent/20 relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-studio-accent/5 to-transparent pointer-events-none"></div>
+          
+          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
+            <div className="flex flex-col space-y-4 max-w-md">
+              <span className="font-mono text-[10px] text-studio-gold uppercase tracking-[0.2em] font-bold">
+                02.5 // TRUST METRICS
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">
+                Why Local Jammu Brands Partner With Us
+              </h2>
+              <p className="font-sans text-sm text-studio-cream/75 font-light leading-relaxed">
+                We remove the technical stress and overpriced agency fat. You get world-class editorial web designs built specifically to drive phone calls, store visits, and local trust.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:w-1/2 w-full">
+              <div className="flex flex-col space-y-2 border-l-2 border-studio-gold/40 pl-4 py-1">
+                <h3 className="font-serif text-lg font-bold text-studio-cream">Fast Delivery</h3>
+                <p className="font-sans text-xs text-studio-cream/65">Your website goes live in 3 to 7 days, fully polished.</p>
+              </div>
+
+              <div className="flex flex-col space-y-2 border-l-2 border-studio-gold/40 pl-4 py-1">
+                <h3 className="font-serif text-lg font-bold text-studio-cream">Affordable Rates</h3>
+                <p className="font-sans text-xs text-studio-cream/65">Localized packages from ₹4,999 with zero hidden fees.</p>
+              </div>
+
+              <div className="flex flex-col space-y-2 border-l-2 border-studio-gold/40 pl-4 py-1">
+                <h3 className="font-serif text-lg font-bold text-studio-cream">WhatsApp Support</h3>
+                <p className="font-sans text-xs text-studio-cream/65">One-tap direct client connection pathways built-in.</p>
+              </div>
+
+              <div className="flex flex-col space-y-2 border-l-2 border-studio-gold/40 pl-4 py-1">
+                <h3 className="font-serif text-lg font-bold text-studio-cream">Mobile Perfected</h3>
+                <p className="font-sans text-xs text-studio-cream/65">100% fluid layouts designed to look spectacular on phones.</p>
+              </div>
+
+              <div className="flex flex-col space-y-2 border-l-2 border-studio-gold/40 pl-4 py-1 sm:col-span-2">
+                <h3 className="font-serif text-lg font-bold text-studio-cream">Modern Premium Design</h3>
+                <p className="font-sans text-xs text-studio-cream/65">Editorial typography and responsive animations that immediately signal luxury.</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* 3. Featured Works Section */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-16">
@@ -270,14 +333,17 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col space-y-4"
+            className="flex flex-col space-y-4 max-w-xl"
           >
             <span className="font-mono text-xs text-studio-accent uppercase tracking-[0.2em] font-medium">
-              03 // THE ARCHIVE HIGHLIGHTS
+              03 // WEBSITE CONCEPTS
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-studio-dark">
-              Selected Digital Formats
+              Website Concepts
             </h2>
+            <p className="font-sans text-sm text-studio-clay font-light leading-relaxed">
+              Premium website experiences created to demonstrate what's possible for local businesses. Never fake client work.
+            </p>
           </motion.div>
           
           <button
@@ -344,38 +410,99 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
             {/* Form Intro Column */}
-            <div className="lg:col-span-5 flex flex-col space-y-6">
+            <div className="lg:col-span-6 flex flex-col space-y-6">
               <span className="font-mono text-[10px] tracking-[0.25em] text-studio-gold uppercase font-bold flex items-center space-x-1.5">
                 <Sparkles size={12} />
-                <span>PARTNERSHIP / BRIEFING</span>
+                <span>PARTNERSHIP & CONTACT</span>
               </span>
               
               <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-studio-cream leading-tight">
-                Let's bring your business online.
+                Ready to Bring Your Business Online?
               </h2>
               
-              <p className="font-sans text-sm text-studio-cream/70 leading-relaxed font-light">
-                Ready to transcend standard templates? Send us a short brief about your project, your brand story, and your timeline. We will review it and coordinate a 20-minute digital consultation within 48 business hours.
+              <p className="font-sans text-sm text-studio-cream/85 leading-relaxed font-light">
+                Whether you run a café, bakery, salon, restaurant, gym, boutique, or any local business, I'd love to create a unique digital experience for your brand.
               </p>
               
-              <div className="pt-6 border-t border-studio-cream/10 flex flex-col space-y-4 text-xs font-mono text-studio-cream/50">
-                <div className="flex items-center space-x-2">
-                  <Star size={12} className="text-studio-gold" />
-                  <span>Bespoke craftsmanship, zero boilerplate</span>
+              <p className="font-sans text-xs text-studio-cream/60 leading-relaxed font-light border-l-2 border-studio-gold/50 pl-3">
+                Every website is custom-designed to match your business and attract more customers.
+              </p>
+              
+              <div className="flex flex-wrap gap-3 pt-1">
+                <button
+                  onClick={() => {
+                    const nameInput = document.getElementById('name');
+                    if (nameInput) {
+                      nameInput.focus();
+                      nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                  }}
+                  className="bg-studio-gold text-studio-dark hover:bg-studio-cream font-sans text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                >
+                  Let's Talk
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveView('portfolio');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="border border-white/20 hover:border-white/50 text-studio-cream font-sans text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full transition-all duration-300 cursor-pointer"
+                >
+                  View More Concepts
+                </button>
+              </div>
+
+              {/* Personal Contact Card */}
+              <div className="bg-[#151210] border border-studio-accent/25 rounded-2xl p-6 shadow-xl relative overflow-hidden flex flex-col space-y-4 mt-4">
+                {/* Gold Top Stripe Accent */}
+                <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-studio-gold via-[#E1B87F] to-studio-gold"></div>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-studio-gold/10 border border-studio-gold/30 flex items-center justify-center font-serif text-studio-gold font-bold text-sm tracking-wider">
+                      TT
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-base font-bold text-studio-cream">Tanmay Tripathi</h4>
+                      <p className="font-sans text-[10px] text-studio-gold uppercase tracking-wider font-semibold">Freelance Web Designer & Developer</p>
+                    </div>
+                  </div>
+                  <span className="font-mono text-[9px] text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full flex items-center space-x-1 font-bold shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>ACTIVE IN JAMMU</span>
+                  </span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Star size={12} className="text-studio-gold" />
-                  <span>Transparent cost structure</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Star size={12} className="text-studio-gold" />
-                  <span>Direct contact with senior director</span>
+
+                <p className="font-sans text-xs text-studio-cream/70 font-light leading-relaxed border-t border-white/5 pt-3">
+                  For project inquiries, collaborations, or to discuss a website for your business, feel free to get in touch.
+                </p>
+
+                <div className="space-y-2.5 pt-1 text-xs font-sans">
+                  <a href="mailto:tanmaytripathi7525@gmail.com" className="flex items-center space-x-3 text-studio-cream/80 hover:text-studio-gold transition-colors group">
+                    <Mail size={14} className="text-studio-gold/70 group-hover:text-studio-gold transition-colors shrink-0" />
+                    <span className="underline decoration-studio-gold/30 group-hover:decoration-studio-gold truncate">tanmaytripathi7525@gmail.com</span>
+                  </a>
+                  
+                  <a href="tel:+917006107969" className="flex items-center space-x-3 text-studio-cream/80 hover:text-studio-gold transition-colors group">
+                    <Phone size={14} className="text-studio-gold/70 group-hover:text-studio-gold transition-colors shrink-0" />
+                    <span>+91 70061 07969</span>
+                  </a>
+
+                  <a href="https://wa.me/917006107969" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-studio-cream/80 hover:text-[#25D366] transition-colors group">
+                    <MessageCircle size={14} className="text-[#25D366]/80 group-hover:text-[#25D366] transition-colors shrink-0 fill-[#25D366]/10" />
+                    <span>+91 70061 07969</span>
+                  </a>
+
+                  <div className="flex items-center space-x-3 text-studio-cream/80">
+                    <MapPin size={14} className="text-studio-gold/70 shrink-0" />
+                    <span>Jammu, India</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Form Column */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -457,9 +584,9 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
                       onChange={handleInputChange}
                       className="bg-[#2B2521] border border-white/10 rounded-lg px-4 py-3 font-sans text-sm text-studio-cream focus:outline-none focus:border-studio-gold transition-colors cursor-pointer"
                     >
-                      <option value="₹5,000 - ₹15,000">₹5,000 - ₹15,000 (The Showcase Studio Website)</option>
-                      <option value="₹15,000 - ₹35,000">₹15,000 - ₹35,000 (The Editorial Brand Experience)</option>
-                      <option value="₹35,000 - ₹50,000+">₹35,000 - ₹50,000+ (Custom Commission / E-Commerce)</option>
+                      <option value="₹4,999 - ₹9,999">₹4,999 — ₹9,999 (Starter Website Concept)</option>
+                      <option value="₹9,999 - ₹19,999">₹9,999 — ₹19,999 (Business Web Accelerator)</option>
+                      <option value="₹19,999+">₹19,999+ (Premium E-Commerce / Custom Portal)</option>
                     </select>
                   </div>
 
@@ -480,6 +607,12 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
                   </div>
 
                   {/* Submit Button */}
+                  <div className="text-center pb-2">
+                    <p className="font-sans text-xs text-studio-gold font-medium">
+                      ✨ Free demo website available before purchase. No obligation.
+                    </p>
+                  </div>
+
                   <button
                     type="submit"
                     disabled={isSubmitting}

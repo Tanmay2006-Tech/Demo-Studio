@@ -20,13 +20,13 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
   const [ecommerce, setEcommerce] = useState(false);
 
   // Surcharges / Prices in INR (₹)
-  const BASE_PRICE = 120000; // base price for a 1-page site: ₹1,20,000
-  const PRICE_PER_PAGE = 10000; // ₹10,000
-  const PRICE_COPY = 40000; // ₹40,000
-  const PRICE_SEO = 25000; // ₹25,000
-  const PRICE_SUPPORT = 20000; // ₹20,000
-  const PRICE_DOMAIN = 10000; // ₹10,000
-  const PRICE_ECOMMERCE = 80000; // ₹80,000
+  const BASE_PRICE = 4999; // base price for a 1-page site: ₹4,999
+  const PRICE_PER_PAGE = 1000; // ₹1,000
+  const PRICE_COPY = 1500; // ₹1,500
+  const PRICE_SEO = 1000; // ₹1,000
+  const PRICE_SUPPORT = 1000; // ₹1,000
+  const PRICE_DOMAIN = 500; // ₹500
+  const PRICE_ECOMMERCE = 5000; // ₹5,000
 
   // Calculate live total
   const calculateTotal = () => {
@@ -204,7 +204,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Brand Copywriting</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹40,000 // Full visual tone & copy</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">+₹1,500 // Full visual tone & copy</span>
                 </div>
               </button>
 
@@ -218,7 +218,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Advanced SEO Setup</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹25,000 // Keyword indexation & maps</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">+₹1,000 // Keyword indexation & maps</span>
                 </div>
               </button>
 
@@ -227,13 +227,13 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 onClick={() => handleOptionToggle('prioritySupport')}
                 className={`flex items-start space-x-3.5 p-4 rounded-xl border text-left cursor-pointer transition-colors ${options.prioritySupport ? 'border-studio-gold bg-studio-gold/5 text-studio-cream' : 'border-white/10 hover:border-white/25 text-studio-cream/70'}`}
               >
-                <div className={`w-4 h-4 rounded border mt-0.5 flex items-center justify-center shrink-0 ${options.prioritySupport ? 'border-studio-gold bg-studio-gold font-bold' : 'border-white/30'}`} // wait, actually the original has: border-white/30 without font-bold
+                <div className={`w-4 h-4 rounded border mt-0.5 flex items-center justify-center shrink-0 ${options.prioritySupport ? 'border-studio-gold bg-studio-gold font-bold' : 'border-white/30'}`}
                 >
                   {options.prioritySupport && <Check size={10} className="text-studio-dark font-bold" />}
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Priority 30-Day Launch Care</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹20,000 // Express support & edits</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">+₹1,000 // Express support & edits</span>
                 </div>
               </button>
 
@@ -247,7 +247,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-xs font-semibold">Custom DNS & Domain Setup</span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹10,000 // Mapping & email routing</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">+₹500 // Mapping & email routing</span>
                 </div>
               </button>
 
@@ -264,7 +264,7 @@ export default function ServicesView({ packages, onSelectPackage }: ServicesView
                     <span>E-Commerce Curation & Setup</span>
                     <span className="font-mono text-[8px] bg-studio-gold/20 text-studio-gold uppercase px-1.5 py-0.5 rounded tracking-wide">HIGH COMMISSION</span>
                   </span>
-                  <span className="font-mono text-[9px] text-studio-cream/50">+₹80,000 // Digital checkout, secure payments, inventory system, and product catalog</span>
+                  <span className="font-mono text-[9px] text-studio-cream/50">+₹5,000 // Digital checkout, secure payments, inventory system, and product catalog</span>
                 </div>
               </button>
             </div>
