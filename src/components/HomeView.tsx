@@ -98,12 +98,24 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
         >
           <div className="lg:col-span-7 flex flex-col space-y-6">
-            <motion.span 
-              variants={heroItemVariants}
-              className="font-mono text-xs text-studio-accent uppercase tracking-[0.2em] font-medium flex items-center space-x-2"
-            >
-              <span>01 // INTRODUCTION</span>
-            </motion.span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <motion.span 
+                variants={heroItemVariants}
+                className="font-mono text-xs text-studio-accent uppercase tracking-[0.2em] font-medium flex items-center space-x-2"
+              >
+                <span>01 // INTRODUCTION</span>
+              </motion.span>
+              
+              <motion.div 
+                variants={heroItemVariants}
+                className="bg-[#1C1815] border border-studio-gold/25 text-studio-gold px-3.5 py-1.5 rounded-full flex items-center space-x-1.5 w-fit shadow-sm"
+              >
+                <Sparkles size={10} className="text-studio-gold animate-pulse shrink-0" />
+                <span className="font-mono text-[9px] font-bold uppercase tracking-wider">
+                  Free custom homepage concept available for serious inquiries
+                </span>
+              </motion.div>
+            </div>
             
             <motion.h1 
               variants={heroItemVariants}
@@ -417,15 +429,15 @@ export default function HomeView({ setActiveView, onInquirySubmit, featuredWorks
               </span>
               
               <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-studio-cream leading-tight">
-                Ready to Bring Your Business Online?
+                Interested in seeing how your business could look online?
               </h2>
               
-              <p className="font-sans text-sm text-studio-cream/85 leading-relaxed font-light">
-                Whether you run a café, bakery, salon, restaurant, gym, boutique, or any local business, I'd love to create a unique digital experience for your brand.
+              <p className="font-sans text-sm sm:text-base text-studio-gold font-medium leading-relaxed bg-studio-gold/10 border-l-2 border-studio-gold p-4 rounded-r-lg">
+                I can create a custom website concept tailored specifically for your brand.
               </p>
-
-              <p className="font-sans text-sm text-studio-gold font-medium leading-relaxed bg-studio-gold/10 border-l-2 border-studio-gold p-3 rounded-r-lg">
-                ✨ Interested in seeing how your business could look online? I can create a free concept demo for your brand with no obligation.
+              
+              <p className="font-sans text-sm text-studio-cream/80 leading-relaxed font-light">
+                Whether you run a café, salon, restaurant, boutique, gym, or local business, let's explore how we can elevate your brand's digital presence and win more customers.
               </p>
               
               <p className="font-sans text-xs text-studio-cream/65 leading-relaxed font-light pl-1">

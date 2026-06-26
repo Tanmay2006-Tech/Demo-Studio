@@ -239,6 +239,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-studio-cream text-studio-dark font-sans flex flex-col selection:bg-studio-accent/20 selection:text-studio-dark">
+      {/* Demonstration Banner */}
+      <div className="bg-[#1C1815] text-studio-gold text-[11px] sm:text-xs font-mono py-2.5 px-4 text-center border-b border-studio-gold/15 flex items-center justify-center space-x-2 relative z-50 shadow-sm">
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-studio-gold animate-pulse shrink-0"></span>
+        <span className="font-light tracking-wide text-studio-cream/90">
+          This website is a demonstration of the digital experiences I create for local businesses.
+        </span>
+      </div>
+
       {/* Editorial Navigation Header */}
       <Header 
         activeView={activeView} 
