@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-studio-cream: #FAF8F5;
+  --color-studio-dark: #0F0E0C;
+  --color-studio-accent: #9A7B66;
+  --color-studio-gold: #C6A378;
+  --color-studio-clay: #5C524A;
+  --color-studio-border: rgba(15, 14, 12, 0.07);
+  --color-studio-border-dark: rgba(15, 14, 12, 0.14);
+}
+
+body {
+  background-color: var(--color-studio-cream);
+  color: var(--color-studio-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbars matching the editorial look */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-studio-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(154, 123, 102, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(154, 123, 102, 0.45);
+}
+
+/* Custom editorial link underline effect */
+.editorial-link {
+  position: relative;
+}
+.editorial-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.editorial-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

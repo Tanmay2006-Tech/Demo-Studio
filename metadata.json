@@ -1,0 +1,6 @@
+{
+  "name": "Tanmay Studio Web Design Portfolio",
+  "description": "A highly polished, premium editorial portfolio for Tanmay Studio web design, showcasing responsive layout concepts with an interactive quote calculator and client dossier registry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
